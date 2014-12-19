@@ -1,4 +1,10 @@
-Cards_Against_Insanity
+Cards AgainstInsanity
 ======================
 
 Final Project with Victor Tan
+
+DESCRIPTION:
+
+___
+CHANGELOG:
+
