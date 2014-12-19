@@ -19,6 +19,7 @@ Final Project with Victor Tan
      - experience needed gets higher per level
      - higher rarity cards' stats have better growth
 <br>
+<br>
 <b>CHANGELOG:</b>
 <br> <br>
 12/17 - Made README.md <br>
