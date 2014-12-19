@@ -18,7 +18,7 @@ DESCRIPTION:
      - higher rarity cards need more experience to level up
      - experience needed gets higher per level
      - higher rarity cards' stats have better growth
-___
+======================
 CHANGELOG:
 <br> <br>
 12/17 - Made README.md <br>
