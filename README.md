@@ -4,7 +4,7 @@ Cards Against Insanity
 Final Project with Victor Tan
 
 DESCRIPTION:
-
+<br> <br>
  - tower defense game
    - adventure-type game
    - random encounter chance
@@ -20,8 +20,8 @@ DESCRIPTION:
      - higher rarity cards' stats have better growth
 ___
 CHANGELOG:
-
-12/17 - Made README.md
-12/17 - Made progress.txt
-12/18 - Named game Cards Against Insanity
-12/19 - Replaced README.md with cooler README
+<br> <br>
+12/17 - Made README.md <br>
+12/17 - Made progress.txt <br>
+12/18 - Named game Cards Against Insanity <br> 
+12/19 - Replaced README.md with cooler README <br>
