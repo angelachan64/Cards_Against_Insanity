@@ -3,7 +3,7 @@ Cards Against Insanity
 
 Final Project with Victor Tan
 <br>
-<b>DESCRIPTION:<b>
+<b>DESCRIPTION:</b>
 <br> <br>
  - tower defense game
    - adventure-type game
@@ -19,7 +19,7 @@ Final Project with Victor Tan
      - experience needed gets higher per level
      - higher rarity cards' stats have better growth
 <br>
-<b>CHANGELOG:<b>
+<b>CHANGELOG:</b>
 <br> <br>
 12/17 - Made README.md <br>
 12/17 - Made progress.txt <br>
