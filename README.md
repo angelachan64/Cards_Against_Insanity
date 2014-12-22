@@ -5,7 +5,7 @@ Final Project with Victor Tan
 ___
 <br>
 <b>DESCRIPTION:</b>
-___
+
 <br>
 This is a tower defense adventure time game
 with a random encounter chance. The difficulty of the monsters
@@ -19,9 +19,9 @@ level and rarity. Experience needed to level up gets higher per level. Higher
 rarity cards need more experience to level up but their stats have better
 growth.
 
+___
 <br>
 <b>CHANGELOG:</b>
-___
 <br> 
 12/17 - Made README.md <br>
 12/17 - Made progress.txt <br>
