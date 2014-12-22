@@ -5,7 +5,6 @@ Final Project with Victor Tan
 ___
 <br>
 <b>DESCRIPTION:</b>
-
 <br>
 This is a tower defense adventure time game
 with a random encounter chance. The difficulty of the monsters
