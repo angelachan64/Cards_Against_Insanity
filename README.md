@@ -2,26 +2,27 @@ Cards Against Insanity
 ======================
 
 Final Project with Victor Tan
+___
 <br>
 <b>DESCRIPTION:</b>
-<br> <br>
- - tower defense game
-   - adventure-type game
-   - random encounter chance
-     - difficulty randomly set
-     - if encounter, enter tower defense mode (quest mode)
-     - regular tower defense like thing
-     - end of encounter : random chance to get card/unit
-       - randomly obtained
-   - cards can be enhanced by feeding it other cards
-     - each card gives a set amount of exp depending on its level and rarity
-     - higher rarity cards need more experience to level up
-     - experience needed gets higher per level
-     - higher rarity cards' stats have better growth
+___
 <br>
+This is a tower defense adventure time game
+with a random encounter chance. The difficulty of the monsters
+you face in the encounter is randomly set. If there is an encounter,
+it enters tower defense mode, also known as quest mode. This is basically
+a regular tower defense minigame. At the end of the encounter, there is
+a random chance to get a card or unit. Quests are redoable in a quest tab if
+you want to grind to get the card. Cards can be enhanced by feeding it other
+cards. Each card gives a set amount of experience points depending on its
+level and rarity. Experience needed to level up gets higher per level. Higher
+rarity cards need more experience to level up but their stats have better
+growth.
+
 <br>
 <b>CHANGELOG:</b>
-<br> <br>
+___
+<br> 
 12/17 - Made README.md <br>
 12/17 - Made progress.txt <br>
 12/18 - Named game Cards Against Insanity <br> 
