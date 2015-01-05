@@ -7,7 +7,7 @@ public class CAI extends JFrame{
     private Container window;
     public CAI(){
         setTitle("Cards Against Insanity");
-        setSize(1000,1000);
+        setSize(800,800);
         setLocation(100,100);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         window = getContentPane();
