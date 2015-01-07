@@ -1,16 +1,32 @@
 import java.awt.image.*;
+import java.awt.event.*;
 import javax.imageio.*;
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 import java.io.*;
 
-public class CAI extends JFrame{
+public class CAI extends JFrame implements ActionListener{
     private Container window;
     private JPanel title,black;
     private JButton newgame,loadgame;
     private BufferedImage titlepic;
     private JLabel titulo,spacer;
+    private boolean visible = true;
+    game g = new game();
+
+    public void actionPerformed(ActionEvent e){
+	if (e.getSource() == newgame){
+	    System.out.println("Starting a new game...");
+	    this.dispose();
+	    g.setVisible(true);
+	}
+    }
+
+    public boolean getVisible(){
+	return this.visible;
+    }
+
     public CAI(){
         setTitle("Cards Against Insanity");
         setSize(800,800);
@@ -45,9 +61,11 @@ public class CAI extends JFrame{
 
 	newgame = new JButton("New Game");
 	newgame.setPreferredSize(new Dimension(300,40));
+	newgame.addActionListener(this);
 	window.add(newgame);
 	loadgame = new JButton("Load Game");
 	loadgame.setPreferredSize(new Dimension(300,40));
+	loadgame.addActionListener(this);
 	window.add(loadgame);
     }
 }
