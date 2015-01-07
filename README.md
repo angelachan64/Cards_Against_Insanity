@@ -26,3 +26,6 @@ ___
 12/17 - Made progress.txt <br>
 12/18 - Named game Cards Against Insanity <br> 
 12/19 - Replaced README.md with cooler README <br>
+1/5 - Made CAI.java, worked on visuals
+1/6 - Finished visuals for CAI.java
+1/7 - Added functionality of newgame button, made game.java
