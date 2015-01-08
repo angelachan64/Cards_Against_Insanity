@@ -4,7 +4,7 @@ import java.awt.*;
 public class Driver {
         public static void main(String[] args) {
             CAI c = new CAI();
-	    game g = new game();
+	    //game g = new game();
 	    /*while (c.getVisible()){
 		g.setVisible(false);
 		c.setVisible(true);

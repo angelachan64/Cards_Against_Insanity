@@ -13,13 +13,13 @@ public class CAI extends JFrame implements ActionListener{
     private BufferedImage titlepic;
     private JLabel titulo,spacer;
     private boolean visible = true;
-    game g = new game();
 
     public void actionPerformed(ActionEvent e){
 	if (e.getSource() == newgame){
 	    System.out.println("Starting a new game...");
 	    this.dispose();
-	    g.setVisible(true);
+	    //game g = new game();
+	    new game();
 	}
     }
 

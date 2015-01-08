@@ -7,7 +7,7 @@ import java.awt.*;
 import java.io.*;
 
 public class game extends JFrame{
-    private Container window;
+    private Container jonjo;
     private JPanel canvas;
 
     public game(){
@@ -16,13 +16,17 @@ public class game extends JFrame{
 	setLocation(400,50);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-	canvas = new Canvas();
+	jonjo = getContentPane();
+	setVisible(true);
+
 	canvas.setPreferredSize(new Dimension(600,600));
-	window.add(canvas);
+	canvas.getContentPane.setBackground(Color.BLUE);
+	jonjo.add(canvas);
     }
-    private class Canvas extends JPanel{
+    /*private class Canvas extends JPanel{
 	public void paintComponent(Graphics g){
+	    super.paintComponent(g);
 	    g.setColor(Color.blue);
 	}
-    }
+    }*/
 }
