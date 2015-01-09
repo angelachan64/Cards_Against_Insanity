@@ -29,3 +29,5 @@ ___
 1/5 - Made CAI.java, worked on visuals <br>
 1/6 - Finished visuals for CAI.java <br>
 1/7 - Added functionality of newgame button, made game.java
+1/8 - small bug fix
+1/9 - found images for game.java, adding them into the game.java file
