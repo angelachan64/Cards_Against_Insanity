@@ -6,7 +6,7 @@ import java.util.*;
 import java.awt.*;
 import java.io.*;
 
-public class game extends JFrame{
+public class game extends JFrame implements KeyListener{
     private Container jonjo;
     private JPanel canvas;
 
