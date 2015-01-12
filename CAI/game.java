@@ -34,9 +34,11 @@ public class game extends JFrame{
 	canvas = new Canvas();
 	jonjo.add(canvas);
 	name = new JTextArea();
+	name.append("What is your name?");
 	name.setColumns(20);
 	name.setRows(1);
 	name.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+	name.setEditable(false);
 	canvas.add(name);
     }
 

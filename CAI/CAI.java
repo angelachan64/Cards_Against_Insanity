@@ -17,16 +17,19 @@ public class CAI extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 	if (e.getSource() == newgame){
 	    System.out.println("Starting a new game...");
+	    /* OPENS UP A NEW GAME WINDOW */
 	    this.dispose();
 	    //game g = new game();
 	    new game();
 	}
     }
 
+    /* not important*/
     public boolean getVisible(){
 	return this.visible;
     }
 
+    /* title constructor */
     public CAI(){
         setTitle("Cards Against Insanity");
         setSize(800,800);
