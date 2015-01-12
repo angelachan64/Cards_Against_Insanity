@@ -10,6 +10,7 @@ public class game extends JFrame{
     private Container jonjo;
     private JPanel canvas;
     private BufferedImage background,character;
+    private JTextArea name;
 
     public game(){
 	setTitle("Cards Against Insanity");
@@ -18,24 +19,38 @@ public class game extends JFrame{
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	jonjo = getContentPane();
-	jonjo.setLayout(new FlowLayout());
+	//jonjo.setLayout(new FlowLayout());
 	setVisible(true);
 
 	//canvas.setPreferredSize(new Dimension(600,600));
         //canvas.setBackground(Color.BLUE);
 	try{
-	    image = ImageIO.read(new File("background.jpg"));
+	    background = ImageIO.read(new File("background.jpg"));
+	    //canvas = new JPanel(new ImageIcon(background));
+	    //character = ImageIO.read(new File("character.png"));
+	    //canvas = new Canvas();
 	} catch(IOException e){
 	}
+	canvas = new Canvas();
 	jonjo.add(canvas);
+	name = new JTextArea();
+	name.setColumns(20);
+	name.setRows(1);
+	name.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+	canvas.add(name);
     }
 
-    /*private class Canvas extends JPanel{
+    private class Canvas extends JPanel{
 	public void paintComponent(Graphics g){
 	    super.paintComponent(g);
-	    g.setColor(Color.blue);
+	    //g.setColor(Color.blue);
+	    canvas.setPreferredSize(new Dimension(600,600));
+	    g.drawImage(background,0,0,getWidth(),getHeight(),null);
+	    //g.drawImage(character,300,450,null);
+	    //canvas.setPreferredSize(new Dimension(600,600));
 	}
-    }*/
+    }
+
 
     public static void main(String[] args){
 	game g = new game();
