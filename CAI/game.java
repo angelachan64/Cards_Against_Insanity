@@ -45,6 +45,7 @@ public class game extends JFrame{
 	entername.setColumns(20);
 	name.setRows(1);
 	name.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+	entername.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	canvas.add(entername);
 
 	Submit = new JButton("Submit");
