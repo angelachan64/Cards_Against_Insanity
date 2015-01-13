@@ -10,7 +10,8 @@ public class game extends JFrame{
     private Container jonjo;
     private JPanel canvas;
     private BufferedImage background,character;
-    private JTextArea name;
+    private JTextArea name,entername;
+    private JButton Submit;
 
     public game(){
 	setTitle("Cards Against Insanity");
@@ -40,6 +41,20 @@ public class game extends JFrame{
 	name.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	name.setEditable(false);
 	canvas.add(name);
+	entername = new JTextArea();
+	entername.setColumns(20);
+	name.setRows(1);
+	name.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+	canvas.add(entername);
+
+	Submit = new JButton("Submit");
+	canvas.add(Submit);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+	if (e.getSource() == Submit) {
+
+	}
     }
 
     private class Canvas extends JPanel{
