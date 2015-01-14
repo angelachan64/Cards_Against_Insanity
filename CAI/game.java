@@ -13,6 +13,9 @@ public class game extends JFrame implements ActionListener{
     private JTextArea text,entername;
     private JButton Submit,confirm,deny;
     private String player;
+    private int panda;
+
+    Random r = new Random()
 
     public game(){
 	setTitle("Cards Against Insanity");
@@ -92,6 +95,18 @@ public class game extends JFrame implements ActionListener{
 	    entername.setVisible(false);
 	    text.setText("Hello " + player);
 	    text.setColumns(1);
+	    panda = r.nextInt(10);
+	    if (panda == 0){
+		try{
+		    character = ImageIO.read(new File("panda.png"));
+		} catch(IOException e){
+		}
+	    } else{
+		try{
+		    character = ImageIO.read(new File("character.png"));
+		} catch(IOException e){
+		}
+	    }
 	}
     }
 
