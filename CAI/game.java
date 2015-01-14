@@ -68,11 +68,11 @@ public class game extends JFrame implements ActionListener{
 	if (e.getSource() == Submit) {
 	    player = entername.getText();
 	    if (player.length() > 20){
-		text.setText("Your name is too long");
+		text.setText("Your name is too long. Enter a new one.");
 		entername.setText("");
 	    } else{
 		text.setText("Are you sure you wish to be called " + player + "?");
-		text.setColumns(60);
+		text.setColumns(41);
 		entername.setVisible(false);
 		Submit.setVisible(false);
 		confirm.setVisible(true);
@@ -83,7 +83,15 @@ public class game extends JFrame implements ActionListener{
 	    Submit.setVisible(true);
 	    confirm.setVisible(false);
 	    deny.setVisible(false);
+	    text.setColumns(20);
 	    text.setText("What would you like to be called?");
+	} else if (e.getSource() == confirm) {
+	    player = entername.getText();
+	    confirm.setVisible(false);
+	    deny.setVisible(false);
+	    entername.setVisible(false);
+	    text.setText("Hello " + player);
+	    text.setColumns(1);
 	}
     }
 
