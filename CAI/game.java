@@ -11,11 +11,11 @@ public class game extends JFrame implements ActionListener{
     private JPanel canvas;
     private BufferedImage background,character;
     private JTextArea text,entername;
-    private JButton Submit,confirm,deny;
+    private JButton Submit,confirm,deny,inventory,quests,store;
     private String player;
     private int panda;
 
-    Random r = new Random()
+    Random r = new Random();
 
     public game(){
 	setTitle("Cards Against Insanity");
@@ -32,7 +32,7 @@ public class game extends JFrame implements ActionListener{
 	try{
 	    background = ImageIO.read(new File("background.jpg"));
 	    //canvas = new JPanel(new ImageIcon(background));
-	    //character = ImageIO.read(new File("character.png"));
+	    character = ImageIO.read(new File("character.png"));
 	    //canvas = new Canvas();
 	} catch(IOException e){
 	}
@@ -65,6 +65,11 @@ public class game extends JFrame implements ActionListener{
 	deny.setVisible(false);
 	canvas.add(deny);
 	canvas.add(confirm);
+
+	inventory = new JButton("Inventory");
+	inventory.addActionListener(this);
+	inventory.setBounds(100,100,100,50);
+	canvas.add(inventory);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -99,14 +104,10 @@ public class game extends JFrame implements ActionListener{
 	    if (panda == 0){
 		try{
 		    character = ImageIO.read(new File("panda.png"));
-		} catch(IOException e){
-		}
-	    } else{
-		try{
-		    character = ImageIO.read(new File("character.png"));
-		} catch(IOException e){
-		}
+		} catch(IOException ex){
+		} text.append(" You have turned into a panda! Honto kawaii desu!");
 	    }
+	    canvas.update(getGraphics());
 	}
     }
 
@@ -116,7 +117,7 @@ public class game extends JFrame implements ActionListener{
 	    //g.setColor(Color.blue);
 	    canvas.setPreferredSize(new Dimension(600,600));
 	    g.drawImage(background,0,0,getWidth(),getHeight(),null);
-	    //g.drawImage(character,300,450,null);
+	    g.drawImage(character,300,450,null);
 	    //canvas.setPreferredSize(new Dimension(600,600));
 	}
     }
