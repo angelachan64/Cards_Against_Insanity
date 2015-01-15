@@ -32,3 +32,5 @@ ___
 1/8 - small bug fix
 1/9 - found images for game.java, adding them into the game.java file
 1/12 - fixed up some visuals for game.java
+1/13 - game now asks for name
+1/14 - created quest.java, name is now saved
