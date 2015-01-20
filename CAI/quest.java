@@ -27,4 +27,21 @@ public class quest extends JFrame implements ActionListener{
 	start.addActionListener(this);
 	canvas.add(start);
     }
+
+    public void actionPerformed(ActionEvent e) {
+	if (e.getSource() == start) {
+	}
+    }
+
+    private class Canvas extends JPanel{
+	public void paintComponent(Graphics g){
+	    super.paintComponent(g);
+	    canvas.setPreferredSize(new Dimension(600,600));
+	}
+    }
+
+    public static void main(String[] args){
+	quest q = new quest();
+	q.setVisible(true);
+    }
 }
