@@ -26,6 +26,7 @@ public class quest extends JFrame implements ActionListener{
 	start = new JButton("Start");
 	start.addActionListener(this);
 	canvas.add(start);
+	
     }
 
     public void actionPerformed(ActionEvent e) {

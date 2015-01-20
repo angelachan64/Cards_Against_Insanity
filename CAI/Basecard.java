@@ -3,6 +3,7 @@ public class Basecard {
     private int attack;
     private boolean ranged;
     private int range;
+    private int level;
 
     public int gethealth() {
 	return health;
@@ -23,3 +24,13 @@ public class Basecard {
     public int range() {
 	return range;
     }
+
+    public int level() {
+	return level;
+    }
+
+    public void sethealth(int n) {health = n;}
+    public void setmaxhealth(int n) {maxhealth = n;}
+    public void setattack(int n) {attack = n;}
+    public void setlevel(int n) {level = n;}
+}
