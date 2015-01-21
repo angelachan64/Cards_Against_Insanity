@@ -8,7 +8,7 @@ import java.io.*;
 
 public class quest extends JFrame implements ActionListener{
     private Container battle;
-    private JPanel canvas;
+    private JPanel canvas,panel1,panel2;
     private JButton start;
     private int rarity = 0;
 
