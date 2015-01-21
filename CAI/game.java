@@ -26,7 +26,7 @@ public class game extends JFrame implements ActionListener{
 	jonjo = getContentPane();
 	//jonjo.setLayout(new FlowLayout());
 	//jonjo.setLayout(null);
-	jonjo.setLayout(new BoxLayout(jonjo, BoxLayout.X_AXIS));
+	jonjo.setLayout(new BorderLayout(0,800));
 	//jonjo.setSize(1000,800);
 	setVisible(true);
 
