@@ -12,7 +12,7 @@ public class quest extends JFrame implements ActionListener{
     private JButton start;
     private int rarity = 0;
 
-    private quest() {
+    public quest() {
 	setTitle("Time to d-d-d-d-duel!");
 	setSize(800,800);
 	setLocation(400,50);
