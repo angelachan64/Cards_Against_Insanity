@@ -8,8 +8,9 @@ import java.io.*;
 
 public class game extends JFrame implements ActionListener{
     private Container jonjo;
-    private JPanel canvas,toolbar;
-    private BufferedImage background,character;
+    private CardLayout CL;
+    private JPanel canvas;
+    private BufferedImage background,character,charflip;
     private JTextArea text,entername;
     private JButton Submit,confirm,deny,inventory,quests,store;
     private String player;
@@ -19,28 +20,21 @@ public class game extends JFrame implements ActionListener{
 
     public game(){
 	setTitle("Cards Against Insanity");
-	setSize(1000,800);
+	setSize(800,800);
 	setLocation(400,50);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	jonjo = getContentPane();
-	//jonjo.setLayout(new FlowLayout());
-	//jonjo.setLayout(null);
-	jonjo.setLayout(new BorderLayout(0,800));
-	//jonjo.setSize(1000,800);
+	jonjo.setLayout(null);
 	setVisible(true);
 
-	//canvas.setPreferredSize(new Dimension(600,600));
-        //canvas.setBackground(Color.BLUE);
 	try{
 	    background = ImageIO.read(new File("background.jpg"));
-	    //canvas = new JPanel(new ImageIcon(background));
 	    character = ImageIO.read(new File("character.png"));
-	    //canvas = new Canvas();
+	    charflip = ImageIO.read(new File("character2.png"));
 	} catch(IOException e){
 	}
 	canvas = new Canvas();
-	//canvas.setPreferredSize(new Dimension(800,800));
 	jonjo.add(canvas);
 
 
@@ -57,7 +51,6 @@ public class game extends JFrame implements ActionListener{
 	entername.setLineWrap(true);
 	text.setRows(1);
 	text.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	//entername.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	canvas.add(entername);
 
 	Submit = new JButton("Submit");
@@ -72,14 +65,10 @@ public class game extends JFrame implements ActionListener{
 	canvas.add(deny);
 	canvas.add(confirm);
 
-	toolbar.setPreferredSize(new Dimension(200,800));
-	toolbar.setBackground(Color.BLACK);
-	jonjo.add(toolbar);
-
 	inventory = new JButton("Inventory");
 	inventory.addActionListener(this);
 	inventory.setBounds(100,100,100,50);
-	toolbar.add(inventory);
+        canvas.add(inventory);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -131,9 +120,6 @@ public class game extends JFrame implements ActionListener{
     private class Canvas extends JPanel{
 	public void paintComponent(Graphics g){
 	    super.paintComponent(g);
-	    //g.setColor(Color.blue);
-	    //canvas.setBounds(0,800,800,800);
-	    //canvas.setBorder(BorderFactory.createLineBorder(Color.red,2));
 	    g.drawImage(background,0,0,800,800,null);
 	    g.drawImage(character,300,450,null);
 	    canvas.setPreferredSize(new Dimension(800,800));
