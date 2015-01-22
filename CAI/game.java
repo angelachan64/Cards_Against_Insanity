@@ -109,6 +109,13 @@ public class game extends JFrame implements ActionListener{
 	    }
 	    canvas.update(getGraphics());
 	}
+	try {
+	    FileOutputStream saveFile = new FileOutputStream("save.txt");
+	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
+	    save.writeObject(player);
+	    save.close();
+	} catch (Exception exc) {
+	}
     }
 
     private class Canvas extends JPanel{
