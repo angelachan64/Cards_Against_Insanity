@@ -46,7 +46,7 @@ public class CAI extends JFrame implements ActionListener{
 	window.add(title);
 
 	try{
-	titlepic = ImageIO.read(new File("title.png"));
+	titlepic = ImageIO.read(new File("images/title.png"));
 	titulo = new JLabel(new ImageIcon(titlepic));
 	window.add(titulo);
 	} catch(IOException ex){

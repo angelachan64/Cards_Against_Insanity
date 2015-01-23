@@ -8,10 +8,12 @@ import java.io.*;
 
 public class game extends JFrame implements ActionListener{
     private Container jonjo;
-    private JPanel canvas,toolbar;
-    private BufferedImage background,character;
+    private JPanel def,questlist,inv,shop,market,tabs,mainpanel;
+    private CardLayout cards;
+    private BufferedImage background,character,charflip;
     private JTextArea text,entername;
-    private JButton Submit,confirm,deny,inventory,quests,store;
+    private JButton Submit,confirm,deny,main,inventory,quests,store,selling;
+    private JButton quit,move;
     private String player;
     private int panda;
 
@@ -27,21 +29,85 @@ public class game extends JFrame implements ActionListener{
 	}
 
 	setTitle("Cards Against Insanity");
-	setSize(800,800);
-	setLocation(400,50);
+	setSize(800,875);
+	setLocationRelativeTo(null);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	jonjo = getContentPane();
-	jonjo.setLayout(new BorderLayout(0,800));
+	jonjo.setLayout(new BorderLayout());
 	setVisible(true);
 
 	try{
-	    background = ImageIO.read(new File("background.jpg"));
-	    character = ImageIO.read(new File("character.png"));
+	    background = ImageIO.read(new File("images/background.jpg"));
+	    character = ImageIO.read(new File("images/character.png"));
+	    charflip = ImageIO.read(new File("images/character2.png"));
 	} catch(IOException e){
 	}
-	canvas = new Canvas();
-	jonjo.add(canvas);
+
+	cards = new CardLayout();
+	mainpanel = new JPanel();
+	mainpanel.setLayout(cards);
+	cards.show(mainpanel, "quests");
+	
+	def = new Canvas();
+
+	questlist = new JPanel();
+	questlist.setSize(800,800);
+	questlist.setBorder(BorderFactory.createLineBorder(Color.black));
+	questlist.setBackground(Color.white);
+
+	inv = new JPanel();
+	inv.setSize(800,800);
+	inv.setBorder(BorderFactory.createLineBorder(Color.black));
+	inv.setBackground(new Color(255,253,208));
+
+	shop = new JPanel();
+	shop.setSize(800,800);
+	shop.setBorder(BorderFactory.createLineBorder(Color.black));
+	shop.setBackground(new Color(222,184,135));
+
+	market = new JPanel();
+	market.setSize(800,800);
+	market.setBorder(BorderFactory.createLineBorder(Color.black));
+	market.setBackground(new Color(222,184,135));
+
+	mainpanel.add(def, "def");
+	mainpanel.add(questlist, "quests");
+	mainpanel.add(inv, "inv");
+	mainpanel.add(shop, "shop");
+	mainpanel.add(market, "market");
+
+	jonjo.add(mainpanel,BorderLayout.CENTER);
+
+	tabs = new JPanel();
+	//tabs.setBorder(BorderFactory.createLineBorder(Color.black));
+	//tabs.setSize(800,100);
+
+	main = new JButton("Home Screen");
+	main.addActionListener(this);
+	tabs.add(main);
+	inventory = new JButton("Inventory");
+	inventory.addActionListener(this);
+	tabs.add(inventory);
+	quests = new JButton("Quests");
+	quests.addActionListener(this);
+	tabs.add(quests);
+	store = new JButton("Shop");
+	store.addActionListener(this);
+	tabs.add(store);
+	selling = new JButton("Market");
+	selling.addActionListener(this);
+	tabs.add(selling);
+	quit = new JButton("Quit Game");
+	quit.addActionListener(this);
+	tabs.add(quit);
+	
+	jonjo.add(tabs,BorderLayout.SOUTH);
+
+	move = new JButton("Explore");
+	move.addActionListener(this);
+	//def.add(move);
+	
 	if (player == null) {
 	    text = new JTextArea();
 	    text.setText("What is your name?");
@@ -49,26 +115,26 @@ public class game extends JFrame implements ActionListener{
 	    text.setRows(1);
 	    text.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    text.setEditable(false);
-	    canvas.add(text);
+	    def.add(text);
 
 	    entername = new JTextArea();
 	    entername.setColumns(20);
 	    entername.setLineWrap(true);
 	    text.setRows(1);
 	    text.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	    canvas.add(entername);
+	    def.add(entername);
 
 	    Submit = new JButton("Submit");
 	    Submit.addActionListener(this);
-	    canvas.add(Submit);
+	    def.add(Submit);
 	    confirm = new JButton("Yes");
 	    confirm.addActionListener(this);
 	    confirm.setVisible(false);
 	    deny = new JButton("No");
 	    deny.addActionListener(this);
 	    deny.setVisible(false);
-	    canvas.add(deny);
-	    canvas.add(confirm);
+	    def.add(deny);
+	    def.add(confirm);
 	} else {
 	    text = new JTextArea();
 	    text.setText("Hello " + player);
@@ -76,13 +142,14 @@ public class game extends JFrame implements ActionListener{
 	    text.setRows(1);
 	    text.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    text.setEditable(false);
-	    canvas.add(text);
+	    def.add(text);
+	    def.add(move);
 	}
 
 
-	inventory = new JButton("Inventory");
-	inventory.addActionListener(this);
-	inventory.setBounds(100,100,100,50);
+	//inventory = new JButton("Inventory");
+	//inventory.addActionListener(this);
+	//inventory.setBounds(100,100,100,50);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -116,11 +183,25 @@ public class game extends JFrame implements ActionListener{
 	    panda = r.nextInt(10);
 	    if (panda == 0){
 		try{
-		    character = ImageIO.read(new File("panda.png"));
+		    character = ImageIO.read(new File("images/panda.png"));
+		    charflip = ImageIO.read(new File("images/panda2.png"));
 		} catch(IOException ex){
 		} text.append(" You have turned into a panda! Honto kawaii desu!");
 	    }
-	    canvas.update(getGraphics());
+	    def.update(getGraphics());
+	    def.add(move);
+	} else if (e.getSource() == quests){
+	    cards.show(mainpanel, "quests");
+	} else if (e.getSource() == main){
+	    cards.first(mainpanel);
+	} else if (e.getSource() == inventory){
+	    cards.show(mainpanel, "inv");
+	} else if (e.getSource() == store){
+	    cards.show(mainpanel, "shop");
+	} else if (e.getSource() == selling){
+	    cards.last(mainpanel);
+	} else if (e.getSource() == quit){
+	    System.exit(0);
 	}
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("save.txt");
@@ -136,7 +217,7 @@ public class game extends JFrame implements ActionListener{
 	    super.paintComponent(g);
 	    g.drawImage(background,0,0,800,800,null);
 	    g.drawImage(character,300,450,null);
-	    canvas.setPreferredSize(new Dimension(800,800));
+	    def.setPreferredSize(new Dimension(800,800));
 	}
     }
 
