@@ -11,12 +11,12 @@ public class quest extends JFrame implements ActionListener{
     private JPanel canvas,panel1,panel2;
     private JButton start;
     private int wave;
-    private static int questlevel;
+    private int questlevel;
     //maxwaves is the same as quest level.
 
     public quest() {
 	try {
-	    FileInputStream saveFile = new FileInputStream("save.txt");
+	    FileInputStream saveFile = new FileInputStream("questsave.txt");
 	    ObjectInputStream restore = new ObjectInputStream(saveFile);
 	    questlevel = (int) restore.readObject();
 	    restore.close();
@@ -40,7 +40,7 @@ public class quest extends JFrame implements ActionListener{
 	canvas.add(start);
 	
 	try {
-	    FileOutputStream saveFile = new FileOutputStream("save.txt");
+	    FileOutputStream saveFile = new FileOutputStream("questsave.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
 	    save.writeObject(questlevel);
 	    save.close();
