@@ -14,11 +14,12 @@ public class game extends JFrame implements ActionListener{
     private JTextArea text,entername;
     private JButton Submit,confirm,deny,main,inventory,quests,store,selling;
     private JButton quit,move;
-    private ArrayList<String> inven;
+    //private ArrayList<String> inven;
+    private Basecard[] inven = new Basecard[25];
     private String player;
-    private int panda;
-    private int position;
-    private int money;
+    private int panda,position,money;
+    private int x = 300;
+    private boolean left = false;
 
     Random r = new Random();
 
@@ -27,7 +28,8 @@ public class game extends JFrame implements ActionListener{
 	    FileInputStream saveFile = new FileInputStream("savefiles/save.txt");
 	    ObjectInputStream restore = new ObjectInputStream(saveFile);
 	    player = (String) restore.readObject();
-	    inven = (ArrayList) restore.readObject();
+	    //inven = (ArrayList) restore.readObject();
+	    inven = (Basecard[]) restore.readObject();
 	    money = (Integer) restore.readObject();
 	    restore.close();
 	} catch (Exception exc) {
@@ -206,8 +208,19 @@ public class game extends JFrame implements ActionListener{
 	} else if (e.getSource() == selling){
 	    cards.last(mainpanel);
 	} else if (e.getSource() == quit){
+	    System.out.println("Shutting down...");
 	    System.exit(0);
-	} else if (e.getSource() == move) {	    
+	} else if (e.getSource() == move) {
+	    position = r.nextInt(400) + 150;
+	    if (position > x){
+		x = position;
+		left = false;
+		def.update(def.getGraphics());
+	    } else if (position < x){
+		x = position;
+		left = true;
+		def.update(def.getGraphics());
+	    }
 	}
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
@@ -224,7 +237,11 @@ public class game extends JFrame implements ActionListener{
 	public void paintComponent(Graphics g){
 	    super.paintComponent(g);
 	    g.drawImage(background,0,0,800,800,null);
-	    g.drawImage(character,300,450,null);
+	    if (!left){
+		g.drawImage(character,x,450,null);
+	    } else if (left){
+		g.drawImage(charflip,x,450,null);
+	    }
 	    def.setPreferredSize(new Dimension(800,800));
 	}
     }
