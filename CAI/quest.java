@@ -64,8 +64,6 @@ public class quest extends JFrame implements ActionListener, MouseListener{
     public void mouseClicked(MouseEvent e) {
     }
 
-
-
     public void actionPerformed(ActionEvent e) {
 	if (e.getSource() == start) {
 	}

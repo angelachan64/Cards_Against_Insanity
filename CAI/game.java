@@ -207,7 +207,8 @@ public class game extends JFrame implements ActionListener{
 	    cards.last(mainpanel);
 	} else if (e.getSource() == quit){
 	    System.exit(0);
-	} else if (e.getSource() == move) {	    
+	} else if (e.getSource() == move) {
+	    
 	}
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
