@@ -14,12 +14,24 @@ public class CAI extends JFrame implements ActionListener{
     private JLabel titulo,spacer;
     private boolean visible = true;
 
+    File temp = new File("savefiles/save.txt");
+
     public void actionPerformed(ActionEvent e){
 	if (e.getSource() == newgame){
 	    System.out.println("Starting a new game...");
 	    /* OPENS UP A NEW GAME WINDOW */
 	    this.dispose();
+	    try{
+		if (temp.exists()){
+		    RandomAccessFile raf = new RandomAccessFile(temp, "rw");
+		    raf.setLength(0);
+		}
+	    } catch(Exception ex){}
 	    //game g = new game();
+	    new game();
+	} else if (e.getSource() == loadgame){
+	    System.out.println("Opening your old game file...");
+	    this.dispose();
 	    new game();
 	}
     }
