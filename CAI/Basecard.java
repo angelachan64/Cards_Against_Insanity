@@ -6,38 +6,19 @@ public class Basecard {
     private int level;
     private int experience;
     private int expneeded;
+    private int rarity;
     private double growthrate;
 
-    public int gethealth() {
-	return health;
-    }
-
-    public int getmaxhealth() {
-	return maxhealth;
-    }
-
-    public int getattack() {
-	return attack;
-    }
-
-    public boolean ranged() {
-	return ranged;
-    }
-
-    public int range() {
-	return range;
-    }
-
-    public int level() {
-	return level;
-    }
-
-    public int expneeded() {
-	return expneeded;
-    }
-
-    public int experience() {return experience;}
-    public double growthrate() {return growthrate;}
+    public int getrarity(){return this.rarity;}
+    public int gethealth() {return this.health;}
+    public int getmaxhealth() {return this.maxhealth;}
+    public int getattack() {return this.attack;}
+    public boolean ranged() {return this.ranged;}
+    public int range() {return this.range;}
+    public int level() {return this.level;}
+    public int expneeded() {return this.expneeded;}
+    public int experience() {return this.experience;}
+    public double growthrate() {return this.growthrate;}
 
     public void sethealth(int n) {health = n;}
     public void setmaxhealth(int n) {maxhealth = n;}
@@ -46,8 +27,9 @@ public class Basecard {
     public void setexperience(int n) {experience = n;}
     public void setgrowthrate(double n) {growthrate = n;}
     public void setexpneeded(int n) {expneeded = n;}
+    public void setrarity(int n) {rarity = n;}
     /* -------------------------------------------------------------------- */
-    public void card1() {
+    /*public class card1() extends Basecard{
 	sethealth(30);
 	setmaxhealth(30);
 	setattack(5);
@@ -59,7 +41,7 @@ public class Basecard {
     //should always multiply everything by growth rate when you reach next level
     //at 100 exp. Then set growth rate to the current one + .5
     
-    public void card2() {
+    public class card2() extends Basecard{
 	sethealth(33);
 	setmaxhealth(33);
 	setattack(7);
@@ -68,7 +50,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(1.2);
     }
-    public void card3() {
+    public class card3() extends Basecard{
 	sethealth(35);
 	setmaxhealth(35);
 	setattack(8);
@@ -77,7 +59,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(1.3);
     }
-    public void card4() {
+    public class card4()  extends Basecard{
 	sethealth(37);
 	setmaxhealth(37);
 	setattack(10);
@@ -86,7 +68,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(1.5);
     }
-    public void card5() {
+    public class card5() extends Basecard {
 	sethealth(40);
 	setmaxhealth(40);
 	setattack(12);
@@ -95,7 +77,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(1.6);
     }
-    public void card6() {
+    public class card6() extends Basecard {
 	sethealth(43);
 	setmaxhealth(43);
 	setattack(14);
@@ -104,7 +86,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(1.7);
     }
-    public void card7() {
+    public class card7() extends Basecard {
 	sethealth(45);
 	setmaxhealth(45);
 	setattack(16);
@@ -113,7 +95,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(1.8);
     }
-    public void card8() {
+    public class card8() extends Basecard {
 	sethealth(47);
 	setmaxhealth(47);
 	setattack(18);
@@ -122,7 +104,7 @@ public class Basecard {
 	setexpneeded(100);
 	setgrowthrate(2.0);
     }
-    public void spcard1() {
+    public class spcard1() extends Basecard {
 	sethealth(50);
 	setmaxhealth(50);
 	setattack(24);
@@ -131,7 +113,7 @@ public class Basecard {
 	setexpneeded(200);
 	setgrowthrate(3.0);
     }
-    public void spcard2() {
+    public class spcard2() extends Basecard {
 	sethealth(50);
 	setmaxhealth(50);
 	setattack(30);
@@ -139,5 +121,5 @@ public class Basecard {
 	setexperience(0);
 	setexpneeded(300);
 	setgrowthrate(3.0);
-    }
+    }*/
 }

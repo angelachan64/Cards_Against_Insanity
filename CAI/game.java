@@ -13,7 +13,8 @@ public class game extends JFrame implements ActionListener{
     private BufferedImage background,character,charflip;
     private JTextArea text,entername;
     private JButton Submit,confirm,deny,main,inventory,quests,store,selling;
-    private JButton quit,move;
+    private JButton quit,move,quest1,quest2,quest3,quest4,quest5,quest6;
+    private JButton quest7,quest8;
     //private ArrayList<String> inven;
     private Basecard[] inven = new Basecard[25];
     private String player;
@@ -59,9 +60,34 @@ public class game extends JFrame implements ActionListener{
 	def = new Canvas();
 
 	questlist = new JPanel();
+	questlist.setLayout(null);
 	questlist.setSize(800,800);
 	questlist.setBorder(BorderFactory.createLineBorder(Color.black));
 	questlist.setBackground(Color.white);
+	quest1 = new JButton("Start Quest 1");
+	quest1.setBounds(100,100,600,50);
+	questlist.add(quest1);
+	quest2 = new JButton("Start Quest 2");
+	quest2.setBounds(100,175,600,50);
+	questlist.add(quest2);
+	quest3 = new JButton("Start Quest 3");
+        quest3.setBounds(100,250,600,50);
+	questlist.add(quest3);
+	quest4 = new JButton("Start Quest 4");
+        quest4.setBounds(100,325,600,50);
+	questlist.add(quest4);
+	quest5 = new JButton("Start Quest 5");
+        quest5.setBounds(100,400,600,50);
+	questlist.add(quest5);
+	quest6 = new JButton("Start Quest 6");
+        quest6.setBounds(100,475,600,50);
+	questlist.add(quest6);
+	quest7 = new JButton("Start Quest 7");
+        quest7.setBounds(100,550,600,50);
+	questlist.add(quest7);
+	quest8 = new JButton("Start Quest 8");
+        quest8.setBounds(100,625,600,50);
+	questlist.add(quest8);
 
 	inv = new JPanel();
 	inv.setSize(800,800);
@@ -187,6 +213,12 @@ public class game extends JFrame implements ActionListener{
 	    entername.setVisible(false);
 	    text.setText("Hello " + player + '.');
 	    text.setColumns(1);
+
+	    card2 a = new card2();
+	    card2 b = new card2();
+	    inven[0] = a;
+	    inven[1] = b;
+	    
 	    panda = r.nextInt(10);
 	    if (panda == 0){
 		try{
