@@ -10,9 +10,19 @@ public class quest extends JFrame implements ActionListener{
     private Container battle;
     private JPanel canvas,panel1,panel2;
     private JButton start;
-    private int rarity = 0;
+    private int wave;
+    private int questlevel;
+    //maxwaves is the same as quest level.
 
     public quest() {
+	try {
+	    FileInputStream saveFile = new FileInputStream("questsave.txt");
+	    ObjectInputStream restore = new ObjectInputStream(saveFile);
+	    questlevel = (int) restore.readObject();
+	    restore.close();
+	} catch (Exception exc) {
+	}
+	    
 	setTitle("Time to d-d-d-d-duel!");
 	setSize(800,800);
 	setLocation(400,50);
@@ -21,12 +31,21 @@ public class quest extends JFrame implements ActionListener{
 	battle = getContentPane();
 	setVisible(true);
 
+	questlevel = 1;
+
 	canvas = new Canvas();
 	battle.add(canvas);
 	start = new JButton("Start");
 	start.addActionListener(this);
 	canvas.add(start);
 	
+	try {
+	    FileOutputStream saveFile = new FileOutputStream("questsave.txt");
+	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
+	    save.writeObject(questlevel);
+	    save.close();
+	} catch (Exception exc) {
+	}
     }
 
     public void actionPerformed(ActionEvent e) {
