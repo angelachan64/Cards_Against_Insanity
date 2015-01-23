@@ -6,7 +6,7 @@ import java.util.*;
 import java.awt.*;
 import java.io.*;
 
-public class quest extends JFrame implements ActionListener{
+public class quest extends JFrame implements ActionListener, MouseListener{
     private Container battle;
     private JPanel canvas,panel1,panel2;
     private JButton start;
@@ -39,6 +39,7 @@ public class quest extends JFrame implements ActionListener{
 	start.addActionListener(this);
 	canvas.add(start);
 	
+
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("questsave.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
@@ -48,6 +49,23 @@ public class quest extends JFrame implements ActionListener{
 	}
     }
 
+    public void mouseExited(MouseEvent e) {
+    }
+
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    public void mousePressed(MouseEvent e) {
+    }
+
+    public void mouseClicked(MouseEvent e) {
+    }
+
+
+
     public void actionPerformed(ActionEvent e) {
 	if (e.getSource() == start) {
 	}
@@ -56,7 +74,8 @@ public class quest extends JFrame implements ActionListener{
     private class Canvas extends JPanel{
 	public void paintComponent(Graphics g){
 	    super.paintComponent(g);
-	    canvas.setPreferredSize(new Dimension(600,600));
+	    canvas.setPreferredSize(new Dimension(500,500));
+	    canvas.setBorder(BorderFactory.createLineBorder(Color.black));
 	}
     }
 
