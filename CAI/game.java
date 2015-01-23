@@ -21,6 +21,7 @@ public class game extends JFrame implements ActionListener{
     private int panda,position,money;
     private int x = 300;
     private boolean left = false;
+    private int level,questlevel;
 
     Random r = new Random();
 
@@ -32,6 +33,7 @@ public class game extends JFrame implements ActionListener{
 	    //inven = (ArrayList) restore.readObject();
 	    inven = (Basecard[]) restore.readObject();
 	    money = (Integer) restore.readObject();
+	    level = (Integer) restore.readObject();
 	    restore.close();
 	} catch (Exception exc) {
 	}
@@ -253,13 +255,15 @@ public class game extends JFrame implements ActionListener{
 		left = true;
 		def.update(def.getGraphics());
 	    }
-	}
+	} else if (e.getSource() == quest1) {
+	    if (level >= 
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
 	    save.writeObject(player);
 	    save.writeObject(inven);
 	    save.writeObject(money);
+	    save.writeObject(level);
 	    save.close();
 	} catch (Exception exc) {
 	}

@@ -34,4 +34,4 @@ ___
 1/12 - fixed up some visuals for game.java <br>
 1/13 - game now asks for name <br>
 1/14 - created quest.java, name is now saved <br>
-1/22 - added character movement, added tabs for each different jpanel in game.java, added quest buttons. added saving everywhere.
+1/22 - added character movement, added tabs for each different jpanel in game.java, added quest buttons. added saving everywhere (one for quest and one for game). <br>
