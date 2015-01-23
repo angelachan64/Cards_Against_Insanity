@@ -14,16 +14,21 @@ public class game extends JFrame implements ActionListener{
     private JTextArea text,entername;
     private JButton Submit,confirm,deny,main,inventory,quests,store,selling;
     private JButton quit,move;
+    private ArrayList<String> inven;
     private String player;
     private int panda;
+    private int position;
+    private int money;
 
     Random r = new Random();
 
     public game(){
 	try{
-	    FileInputStream saveFile = new FileInputStream("save.txt");
+	    FileInputStream saveFile = new FileInputStream("savefiles/save.txt");
 	    ObjectInputStream restore = new ObjectInputStream(saveFile);
 	    player = (String) restore.readObject();
+	    inven = (ArrayList) restore.readObject();
+	    money = (Integer) restore.readObject();
 	    restore.close();
 	} catch (Exception exc) {
 	}
@@ -178,7 +183,7 @@ public class game extends JFrame implements ActionListener{
 	    confirm.setVisible(false);
 	    deny.setVisible(false);
 	    entername.setVisible(false);
-	    text.setText("Hello " + player);
+	    text.setText("Hello " + player + '.');
 	    text.setColumns(1);
 	    panda = r.nextInt(10);
 	    if (panda == 0){
@@ -202,11 +207,14 @@ public class game extends JFrame implements ActionListener{
 	    cards.last(mainpanel);
 	} else if (e.getSource() == quit){
 	    System.exit(0);
+	} else if (e.getSource() == move) {	    
 	}
 	try {
-	    FileOutputStream saveFile = new FileOutputStream("save.txt");
+	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
 	    save.writeObject(player);
+	    save.writeObject(inven);
+	    save.writeObject(money);
 	    save.close();
 	} catch (Exception exc) {
 	}
