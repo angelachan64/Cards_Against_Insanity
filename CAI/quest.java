@@ -11,7 +11,7 @@ public class quest extends JFrame implements ActionListener, MouseListener{
     private JPanel canvas,panel1,panel2;
     private JButton start;
     private int wave;
-    private int questlevel;
+    //private int questlevel;
     //maxwaves is the same as quest level.
 
     public quest() {
