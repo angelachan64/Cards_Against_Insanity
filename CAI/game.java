@@ -20,13 +20,9 @@ public class game extends JFrame implements ActionListener{
     private String player;
     private int panda,position,money,chance,gain;
     private int x = 300;
-<<<<<<< HEAD
     private boolean left = false,discover;
-=======
-    private boolean left = false;
     private int level,questlevel;
->>>>>>> b1122da32e3419cfbe60dbdd917543b17fbf51b0
-
+    
     Random r = new Random();
 
     public game(){
@@ -277,25 +273,27 @@ public class game extends JFrame implements ActionListener{
 		left = true;
 		def.update(def.getGraphics());
 	    }
-<<<<<<< HEAD
 
 	    if (discover){
 		discover = false;
-		stats.setText("You decided to expore, but you didn't find anything.");
 	    }
 	    
 	    chance = r.nextInt(100);
-	    if (chance<=35){
+	    if (chance<=20){
 		gain = r.nextInt(5)+1;
 		discover = true;
 		money += gain;
 		stats.setText("You decided to explore, and it paid off! You found " + gain + " pieces of gold. You now have " + money + " gold.");
-	    } 
+	    } else{
+		stats.setText("You decided to explore, but you didn't find anything.");
+	    } chance = r.nextInt(100);
+	    if (chance <= 30){
+		stats.append(" You have encountered an enemy!");
+		quest q = new quest();
+		q.setVisible(true);
+	    }
 	}
-=======
-	} else if (e.getSource() == quest1) {
-	    if (level >= 
->>>>>>> b1122da32e3419cfbe60dbdd917543b17fbf51b0
+	
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);

@@ -45,7 +45,7 @@ public class CAI extends JFrame implements ActionListener{
     public CAI(){
         setTitle("Cards Against Insanity");
         setSize(800,800);
-        setLocation(400,50);
+        setLocationRelativeTo(null);
 	getContentPane().setBackground(Color.BLACK);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
