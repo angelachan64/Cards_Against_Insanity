@@ -11,17 +11,17 @@ public class game extends JFrame implements ActionListener{
     private JPanel def,questlist,inv,shop,market,tabs,mainpanel;
     private CardLayout cards;
     private BufferedImage background,character,charflip;
-    private JTextArea text,entername,stats;
+    private JTextArea text,entername,stats,list;
     private JButton Submit,confirm,deny,main,inventory,quests,store,selling;
     private JButton quit,move,quest1,quest2,quest3,quest4,quest5,quest6;
-    private JButton quest7,quest8;
+    private JButton quest7,quest8,refresh;
     //private ArrayList<String> inven;
     private Basecard[] inven = new Basecard[25];
     private String player;
     private int panda,position,money,chance,gain;
     private int x = 300;
     private boolean left = false,discover;
-    private int level,questlevel;
+    private int level,questlevel,numcards=0,cardcount;
     
     Random r = new Random();
 
@@ -95,11 +95,18 @@ public class game extends JFrame implements ActionListener{
 	inv.setSize(800,800);
 	inv.setBorder(BorderFactory.createLineBorder(Color.black));
 	inv.setBackground(new Color(255,253,208));
+	refresh = new JButton("Refresh Your Inventory");
+	refresh.addActionListener(this);
+	inv.add(refresh);
+	list = new JTextArea();
+	list.setRows(1); list.setColumns(70);
+	inv.add(list);        
 
 	shop = new JPanel();
 	shop.setSize(800,800);
 	shop.setBorder(BorderFactory.createLineBorder(Color.black));
 	shop.setBackground(new Color(222,184,135));
+	
 
 	market = new JPanel();
 	market.setSize(800,800);
@@ -229,7 +236,9 @@ public class game extends JFrame implements ActionListener{
 	    deny.setVisible(false);
 	    entername.setVisible(false);
 	    stats.setText("Hello " + player + ". You currently have " + money +
-			  " pieces of gold.");
+			  " pieces of gold. As a gift, you get some free cards! " +
+			  "You have gained two 1-star cards and one 2-star card!");
+	    numcards += 3;
 	    stats.setVisible(true);
 	    text.setColumns(1);
 	    text.setVisible(false);
@@ -292,7 +301,14 @@ public class game extends JFrame implements ActionListener{
 		quest q = new quest();
 		q.setVisible(true);
 	    }
+	} else if (e.getSource() == refresh){
+	    cardcount=0;
+	    for (int i=0;i<25;i++){
+		System.out.println(inven[i].getrarity());
+	    }
+	    list.setText("You currently have " + cardcount + " cards.");
 	}
+
 	
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
