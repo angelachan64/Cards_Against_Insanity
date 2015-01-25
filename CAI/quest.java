@@ -6,7 +6,7 @@ import java.util.*;
 import java.awt.*;
 import java.io.*;
 
-public class quest extends JFrame implements ActionListener, MouseListener{
+public class quest extends JFrame implements ActionListener{
     private Container battle;
     private JPanel canvas,toolbar;
     private JButton start;
@@ -18,7 +18,7 @@ public class quest extends JFrame implements ActionListener, MouseListener{
 	try {
 	    FileInputStream saveFile = new FileInputStream("questsave.txt");
 	    ObjectInputStream restore = new ObjectInputStream(saveFile);
-	    questlevel = (int) restore.readObject();
+	    //questlevel = (int) restore.readObject();
 	    restore.close();
 	} catch (Exception exc) {
 	}
@@ -52,29 +52,15 @@ public class quest extends JFrame implements ActionListener, MouseListener{
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("questsave.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
-	    save.writeObject(questlevel);
+	    //save.writeObject(questlevel);
 	    save.close();
 	} catch (Exception exc) {
 	}
     }
 
-    public void mouseExited(MouseEvent e) {
-    }
-
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    public void mousePressed(MouseEvent e) {
-    }
-
-    public void mouseClicked(MouseEvent e) {
-    }
-
     public void actionPerformed(ActionEvent e) {
 	if (e.getSource() == start) {
+	    
 	}
     }
 
@@ -84,6 +70,7 @@ public class quest extends JFrame implements ActionListener, MouseListener{
 	    canvas.setPreferredSize(new Dimension(500,500));
 	    //canvas.setBorder(BorderFactory.createLineBorder(Color.black));
 	    canvas.setBackground(Color.green);
+	    g.fillRect(5,15,50,75);
 	}
     }
 
