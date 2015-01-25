@@ -11,6 +11,7 @@ public class quest extends JFrame implements ActionListener{
     private JPanel canvas,toolbar;
     private BufferedImage background,tower;
     private JButton start,a,b,c,d,e,f,g,h,i,j;
+    private ArrayList<Integer> coordinates = new ArrayList<Integer>();
     private int wave;
     //private int questlevel;
     //maxwaves is the same as quest level.
@@ -106,37 +107,37 @@ public class quest extends JFrame implements ActionListener{
 	    canvas.update(getGraphics());
 	} else if (e.getSource() == b) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/02Alisa.jpeg"));
+		tower = ImageIO.read(new File("images/cards/02Alisa.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == c) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/03Antoinette.jpeg"));
+		tower = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == d) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/04Zilean.jpeg"));
+		tower = ImageIO.read(new File("images/cards/04Zilean.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == e) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/05Karina.jpeg"));
+		tower = ImageIO.read(new File("images/cards/05Karina.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == f) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/06Janna.jpeg"));
+		tower = ImageIO.read(new File("images/cards/06Janna.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == g) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/07Corey.jpeg"));
+		tower = ImageIO.read(new File("images/cards/07Corey.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
@@ -148,13 +149,13 @@ public class quest extends JFrame implements ActionListener{
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == i) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpeg"));
+		tower = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == j) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/10Krampus.jpeg"));
+		tower = ImageIO.read(new File("images/cards/10Krampus.jpg"));
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
