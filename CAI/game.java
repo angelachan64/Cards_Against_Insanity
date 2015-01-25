@@ -11,16 +11,16 @@ public class game extends JFrame implements ActionListener{
     private JPanel def,questlist,inv,shop,market,tabs,mainpanel;
     private CardLayout cards;
     private BufferedImage background,character,charflip;
-    private JTextArea text,entername;
+    private JTextArea text,entername,stats;
     private JButton Submit,confirm,deny,main,inventory,quests,store,selling;
     private JButton quit,move,quest1,quest2,quest3,quest4,quest5,quest6;
     private JButton quest7,quest8;
     //private ArrayList<String> inven;
     private Basecard[] inven = new Basecard[25];
     private String player;
-    private int panda,position,money;
+    private int panda,position,money,chance,gain;
     private int x = 300;
-    private boolean left = false;
+    private boolean left = false,discover;
 
     Random r = new Random();
 
@@ -113,8 +113,19 @@ public class game extends JFrame implements ActionListener{
 	jonjo.add(mainpanel,BorderLayout.CENTER);
 
 	tabs = new JPanel();
+	tabs.setBackground(Color.white);
 	//tabs.setBorder(BorderFactory.createLineBorder(Color.black));
-	//tabs.setSize(800,100);
+	tabs.setSize(800,100);
+
+	stats = new JTextArea();
+	stats.setRows(1);
+	stats.setColumns(70);
+	stats.setEditable(false);
+	stats.setText("Hello, " + player + ". You currently have " +
+		      money + " pieces of gold.");
+	stats.setBorder(BorderFactory.createLineBorder(Color.black));
+	stats.setVisible(false);
+	def.add(stats);
 
 	main = new JButton("Home Screen");
 	main.addActionListener(this);
@@ -135,7 +146,7 @@ public class game extends JFrame implements ActionListener{
 	quit.addActionListener(this);
 	tabs.add(quit);
 	
-	jonjo.add(tabs,BorderLayout.SOUTH);
+	jonjo.add(tabs,BorderLayout.PAGE_END);
 
 	move = new JButton("Explore");
 	move.addActionListener(this);
@@ -152,7 +163,7 @@ public class game extends JFrame implements ActionListener{
 
 	    entername = new JTextArea();
 	    entername.setColumns(20);
-	    entername.setLineWrap(true);
+	    entername.setLineWrap(false);
 	    text.setRows(1);
 	    text.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    def.add(entername);
@@ -169,13 +180,17 @@ public class game extends JFrame implements ActionListener{
 	    def.add(deny);
 	    def.add(confirm);
 	} else {
-	    text = new JTextArea();
+	    /*text = new JTextArea();
 	    text.setText("Hello " + player);
 	    text.setColumns(1);
 	    text.setRows(1);
 	    text.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    text.setEditable(false);
-	    def.add(text);
+	    def.add(text);*/
+	    //text.setVisible(false);
+	    stats.setText("Hello " + player + ". You currently have " + money +
+			  " pieces of gold.");
+	    stats.setVisible(true);
 	    def.add(move);
 	}
 
@@ -211,8 +226,11 @@ public class game extends JFrame implements ActionListener{
 	    confirm.setVisible(false);
 	    deny.setVisible(false);
 	    entername.setVisible(false);
-	    text.setText("Hello " + player + '.');
+	    stats.setText("Hello " + player + ". You currently have " + money +
+			  " pieces of gold.");
+	    stats.setVisible(true);
 	    text.setColumns(1);
+	    text.setVisible(false);
 
 	    card2 a = new card2();
 	    card2 b = new card2();
@@ -225,7 +243,7 @@ public class game extends JFrame implements ActionListener{
 		    character = ImageIO.read(new File("images/panda.png"));
 		    charflip = ImageIO.read(new File("images/panda2.png"));
 		} catch(IOException ex){
-		} text.append(" You have turned into a panda! Honto kawaii desu!");
+		} stats.append(" You have turned into a panda! Honto kawaii desu!");
 	    }
 	    def.update(getGraphics());
 	    def.add(move);
@@ -253,6 +271,19 @@ public class game extends JFrame implements ActionListener{
 		left = true;
 		def.update(def.getGraphics());
 	    }
+
+	    if (discover){
+		discover = false;
+		stats.setText("You decided to expore, but you didn't find anything.");
+	    }
+	    
+	    chance = r.nextInt(100);
+	    if (chance<=35){
+		gain = r.nextInt(5)+1;
+		discover = true;
+		money += gain;
+		stats.setText("You decided to explore, and it paid off! You found " + gain + " pieces of gold. You now have " + money + " gold.");
+	    } 
 	}
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
