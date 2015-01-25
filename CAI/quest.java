@@ -8,10 +8,10 @@ import java.io.*;
 
 public class quest extends JFrame implements ActionListener, MouseListener{
     private Container battle;
-    private JPanel canvas,panel1,panel2;
+    private JPanel canvas,toolbar;
     private JButton start;
     private int wave;
-    private int questlevel;
+    //private int questlevel;
     //maxwaves is the same as quest level.
 
     public quest() {
@@ -31,13 +31,22 @@ public class quest extends JFrame implements ActionListener, MouseListener{
 	battle = getContentPane();
 	setVisible(true);
 
-	questlevel = 1;
+	battle.setLayout(new BorderLayout());
+	canvas = new Canvas();
+	toolbar = new JPanel();
+	toolbar.setBorder(BorderFactory.createLineBorder(Color.black));
+	JButton d = new JButton("Common");
+	toolbar.add(d);
+	battle.add(canvas,BorderLayout.CENTER);
+	battle.add(toolbar,BorderLayout.EAST);
+
+	/*questlevel = 1;
 
 	canvas = new Canvas();
 	battle.add(canvas);
 	start = new JButton("Start");
 	start.addActionListener(this);
-	canvas.add(start);
+	canvas.add(start);*/
 	
 
 	try {
@@ -73,7 +82,8 @@ public class quest extends JFrame implements ActionListener, MouseListener{
 	public void paintComponent(Graphics g){
 	    super.paintComponent(g);
 	    canvas.setPreferredSize(new Dimension(500,500));
-	    canvas.setBorder(BorderFactory.createLineBorder(Color.black));
+	    //canvas.setBorder(BorderFactory.createLineBorder(Color.black));
+	    canvas.setBackground(Color.green);
 	}
     }
 

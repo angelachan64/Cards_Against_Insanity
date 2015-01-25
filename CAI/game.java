@@ -20,7 +20,12 @@ public class game extends JFrame implements ActionListener{
     private String player;
     private int panda,position,money,chance,gain;
     private int x = 300;
+<<<<<<< HEAD
     private boolean left = false,discover;
+=======
+    private boolean left = false;
+    private int level,questlevel;
+>>>>>>> b1122da32e3419cfbe60dbdd917543b17fbf51b0
 
     Random r = new Random();
 
@@ -32,6 +37,7 @@ public class game extends JFrame implements ActionListener{
 	    //inven = (ArrayList) restore.readObject();
 	    inven = (Basecard[]) restore.readObject();
 	    money = (Integer) restore.readObject();
+	    level = (Integer) restore.readObject();
 	    restore.close();
 	} catch (Exception exc) {
 	}
@@ -271,6 +277,7 @@ public class game extends JFrame implements ActionListener{
 		left = true;
 		def.update(def.getGraphics());
 	    }
+<<<<<<< HEAD
 
 	    if (discover){
 		discover = false;
@@ -285,12 +292,17 @@ public class game extends JFrame implements ActionListener{
 		stats.setText("You decided to explore, and it paid off! You found " + gain + " pieces of gold. You now have " + money + " gold.");
 	    } 
 	}
+=======
+	} else if (e.getSource() == quest1) {
+	    if (level >= 
+>>>>>>> b1122da32e3419cfbe60dbdd917543b17fbf51b0
 	try {
 	    FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
 	    ObjectOutputStream save = new ObjectOutputStream(saveFile);
 	    save.writeObject(player);
 	    save.writeObject(inven);
 	    save.writeObject(money);
+	    save.writeObject(level);
 	    save.close();
 	} catch (Exception exc) {
 	}

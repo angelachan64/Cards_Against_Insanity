@@ -28,9 +28,10 @@ ___
 12/19 - Replaced README.md with cooler README <br>
 1/5 - Made CAI.java, worked on visuals <br>
 1/6 - Finished visuals for CAI.java <br>
-1/7 - Added functionality of newgame button, made game.java
-1/8 - small bug fix
-1/9 - found images for game.java, adding them into the game.java file
-1/12 - fixed up some visuals for game.java
-1/13 - game now asks for name
-1/14 - created quest.java, name is now saved
+1/7 - Added functionality of newgame button, made game.java <br>
+1/8 - small bug fix <br>
+1/9 - found images for game.java, adding them into the game.java file <br>
+1/12 - fixed up some visuals for game.java <br>
+1/13 - game now asks for name <br>
+1/14 - created quest.java, name is now saved <br>
+1/22 - added character movement, added tabs for each different jpanel in game.java, added quest buttons. added saving everywhere (one for quest and one for game). <br>
