@@ -9,9 +9,9 @@ import java.io.*;
 public class quest extends JFrame implements ActionListener{
     private Container battle;
     private JPanel canvas,toolbar;
-    private BufferedImage background,tower;
+    private BufferedImage background,tower1,tower2,tower3,tower4,tower5,tower6;
     private JButton start,a,b,c,d,e,f,g,h,i,j;
-    private ArrayList<Integer> coordinates = new ArrayList<Integer>();
+    private int numtowers = 0;
     private int wave;
     //private int questlevel;
     //maxwaves is the same as quest level.
@@ -101,61 +101,162 @@ public class quest extends JFrame implements ActionListener{
 	    
 	} else if (e.getSource() == a) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/01Reina.jpeg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/01Reina.jpeg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/01Reina.jpeg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/01Reina.jpeg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/01Reina.jpeg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/01Reina.jpeg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
-	} else if (e.getSource() == b) {
+	}
+	else if (e.getSource() == b) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/02Alisa.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/02Alisa.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/02Alisa.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/02Alisa.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/02Alisa.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/02Alisa.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == c) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/03Antoinette.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == d) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/04Zilean.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/04Zilean.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/04Zilean.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/04Zilean.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/04Zilean.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/04Zilean.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == e) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/05Karina.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/05Karina.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/05Karina.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/05Karina.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/05Karina.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/05Karina.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == f) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/06Janna.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/06Janna.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/06Janna.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/06Janna.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/06Janna.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/06Janna.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == g) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/07Corey.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/07Corey.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/07Corey.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/07Corey.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/07Corey.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/07Corey.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == h) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/08Ignis.png"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/08Ignis.png"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/08Ignis.png"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/08Ignis.png"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/08Ignis.png"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/08Ignis.png"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == i) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/09JacquelineJocelyn.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
 	}else if (e.getSource() == j) {
 	    try {
-		tower = ImageIO.read(new File("images/cards/10Krampus.jpg"));
+		if (numtowers == 0) {
+		    tower1 = ImageIO.read(new File("images/cards/10Krampus.jpg"));
+		} else if (numtowers == 1) {
+		    tower2 = ImageIO.read(new File("images/cards/10Krampus.jpg"));
+		} else if (numtowers == 2) {
+		    tower3 = ImageIO.read(new File("images/cards/10Krampus.jpg"));
+		} else if (numtowers == 3) {
+		    tower4 = ImageIO.read(new File("images/cards/10Krampus.jpg"));
+		} else if (numtowers == 4) {
+		    tower5 = ImageIO.read(new File("images/cards/10Krampus.jpg"));
+		}
 	    } catch (IOException exc) {
 	    }
 	    canvas.update(getGraphics());
@@ -174,7 +275,22 @@ public class quest extends JFrame implements ActionListener{
 	    g.fillRect(310,250,50,50);
 	    g.fillRect(350,570,50,50);
 	    g.fillRect(500,260,50,50);
-	    g.drawImage(tower,40,250,50,50,null);
+	    if (numtowers == 0) {
+		g.drawImage(tower1,40,250,50,50,null);
+		numtowers++;
+	    } else if (numtowers == 1) {
+		g.drawImage(tower2,150,100,50,50,null);
+		numtowers++;
+	    } else if (numtowers == 2) {
+		g.drawImage(tower3,310,250,50,50,null);
+		numtowers++;
+	    } else if (numtowers == 3) {
+		g.drawImage(tower4,350,570,50,50,null);
+		numtowers++;
+	    } else if (numtowers == 4) {
+		g.drawImage(tower5,500,260,50,50,null);
+		numtowers++;
+	    }
 	}
     }
 
