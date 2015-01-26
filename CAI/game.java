@@ -8,7 +8,7 @@ import java.io.*;
 
 public class game extends JFrame implements ActionListener{
     private Container jonjo;
-    private JPanel def,questlist,inv,shop,market,tabs,mainpanel;
+    private JPanel def,questlist,inv,shop,market,tabs,mainpanel,liszt;
     private CardLayout cards;
     private BufferedImage background,character,charflip;
     private JTextArea text,entername,stats,list;
@@ -99,8 +99,11 @@ public class game extends JFrame implements ActionListener{
 	refresh.addActionListener(this);
 	inv.add(refresh);
 	list = new JTextArea();
+	list.setEditable(false);
 	list.setRows(1); list.setColumns(70);
-	inv.add(list);        
+	inv.add(list);
+	liszt = new invenlist();
+	inv.add(liszt,BorderLayout.CENTER);
 
 	shop = new JPanel();
 	shop.setSize(800,800);
@@ -243,10 +246,21 @@ public class game extends JFrame implements ActionListener{
 	    text.setColumns(1);
 	    text.setVisible(false);
 
-	    card2 a = new card2();
-	    card2 b = new card2();
+	    card1 a = new card1();
+	    card1 b = new card1();
+	    card2 c = new card2();
 	    inven[0] = a;
 	    inven[1] = b;
+	    inven[2] = c;
+
+	    try {
+		FileOutputStream saveFile = new FileOutputStream("savefiles/save.txt");
+		ObjectOutputStream save = new ObjectOutputStream(saveFile);
+		//save.writeObject(inven);
+		save.close();
+	    } catch (Exception exce) {
+	    }
+
 	    
 	    panda = r.nextInt(10);
 	    if (panda == 0){
@@ -304,7 +318,10 @@ public class game extends JFrame implements ActionListener{
 	} else if (e.getSource() == refresh){
 	    cardcount=0;
 	    for (int i=0;i<25;i++){
-		System.out.println(inven[i].getrarity());
+		if (inven[i] != null){
+		    cardcount++;
+		    System.out.println("You have a card with " + inven[i].getrarity() + " stars.");
+		}
 	    }
 	    list.setText("You currently have " + cardcount + " cards.");
 	}
@@ -332,6 +349,19 @@ public class game extends JFrame implements ActionListener{
 		g.drawImage(charflip,x,450,null);
 	    }
 	    def.setPreferredSize(new Dimension(800,800));
+	}
+    }
+
+    private class invenlist extends JPanel{
+	public void paintComponent(Graphics G){
+	    super.paintComponent(G);
+	    liszt.setPreferredSize(new Dimension(500,500));
+	    liszt.setBackground(new Color(255,253,208));
+	    for (int r=1;r <=5;r++){
+		for (int c=1;c<=5;c++){
+		    G.fillRect(c*100,r*100,100,100);
+		}
+	    }
 	}
     }
 
